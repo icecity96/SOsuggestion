@@ -2,5 +2,6 @@
     <qresource prefix="/images">
         <file>axe.jpg</file>
         <file>play.png</file>
+        <file>scan.png</file>
     </qresource>
 </RCC>

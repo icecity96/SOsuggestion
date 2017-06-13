@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>716</width>
-    <height>417</height>
+    <width>877</width>
+    <height>460</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -116,7 +116,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>716</width>
+     <width>877</width>
      <height>25</height>
     </rect>
    </property>
@@ -138,6 +138,7 @@
      <string>Run</string>
     </property>
     <addaction name="ActionRun"/>
+    <addaction name="ActionCheck"/>
    </widget>
    <widget class="QMenu" name="menuOption">
     <property name="font">
@@ -192,6 +193,11 @@
   <action name="ActionRun">
    <property name="text">
     <string>Start Run</string>
+   </property>
+  </action>
+  <action name="ActionCheck">
+   <property name="text">
+    <string>Synax Check</string>
    </property>
   </action>
  </widget>

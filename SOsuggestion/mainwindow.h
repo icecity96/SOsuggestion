@@ -27,9 +27,11 @@ public:
 private:
     Ui::MainWindow *ui;
     QAction *runAction;
+    QAction *checkAction;
 
     QLabel *ResultTitle;
     QLabel *ResultQuestion;
+    QLabel *synaxCheck;
 
     QSet<QString> key_words;
 
@@ -39,6 +41,7 @@ private:
 public slots:
     void showHeader();
     void showQuestion();
+    void showCheck();
 
 signals:
 
