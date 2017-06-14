@@ -46,7 +46,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ResultQuestion = new QLabel("", this);
     ResultQuestion->setFont(font);
-    ResultQuestion->setGeometry(QRect(QPoint(450,210), QSize(50,100)));
+    ResultQuestion->setGeometry(QRect(QPoint(450,100), QSize(300,250)));
     ResultQuestion->setStyleSheet("border:2px groove gray;border-radius:10px;padding:2px 4px;background-color:#EEEED1;");
     ResultQuestion->hide();
 
@@ -121,9 +121,31 @@ void MainWindow::showQuestion() {
     QString question = ui->EditQuestion->toPlainText();
     QPair<QString, bool> iscode = removeMd(question);
     QString real_question = iscode.first;
+    bool tag = iscode.second;
+    QString advice1, advice2, advice3, show_result = "advice:\n";
+
+    advice1 = "you need more words!";
+    advice2 = "including some code will be better!";
+    advice3 = "be more readable!";
 
     double grade = readAbility(real_question);
-    ResultQuestion->setText(QString::number(grade));
+
+    if(grade == -1) {
+        show_result += "1. " + advice1 + "\n";
+        show_result += "2. " + advice2 ;
+    } else if(tag) {
+        if(grade > 8)
+            show_result += "1. " + advice3;
+        else
+            show_result += "none";
+    } else {
+        show_result += "1. " + advice2 + "\n";
+        if(grade > 8)
+            show_result += "2. " + advice3;
+    }
+
+
+    ResultQuestion->setText(show_result);
 
 }
 
@@ -269,7 +291,7 @@ double MainWindow::readAbility(QString text) {
 
     double source = 4.71*charCount/wordList.size();
 
-    source += 0.5*wordList.size()/sentenceList.size() - 21.34;
+    source += 0.5*wordList.size()/sentenceList.size() - 19.34;
 
     return source;
 }
